@@ -1,4 +1,4 @@
-# Gulp, SASS, Typescript, Browser Sync Basic Configuration
+# Gulp, SASS, TypeScript, Browser Sync Basic Configuration
 
 Install the Gulp Command Line Interface
 
@@ -24,7 +24,7 @@ Create a package.json file
 
 `$ npm init`
 
-Install Gulp, Gulp SASS, Typescript, Gulpe Typescript, and Browser Sync
+Install Gulp, Gulp SASS, TypeScript, Gulp TypeScript, and Browser Sync
 
 `$ npm i -D gulp gulp-sass typescript gulp-typescript browser-sync`
 
