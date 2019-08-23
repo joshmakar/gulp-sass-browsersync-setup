@@ -1,4 +1,18 @@
-# Gulp, SASS, Browser Sync Basic Configuration
+# Gulp, SASS, Typescript, Browser Sync Basic Configuration
+
+Install the Gulp Command Line Interface
+
+`$ npm install gulp-cli -g`
+
+Clone the Repository
+
+`$ git clone https://github.com/joshmakar/gulp-sass-typescript-browsersync-setup.git`
+
+CD into the Newly Created Directory and NPM Install
+
+`$ npm install`
+
+# Alternatively Setup Your Environment Manually
 
 Install the Gulp Command Line Interface
 
@@ -8,9 +22,9 @@ Create a package.json file
 
 `$ npm init`
 
-Install Gulp, Gulp SASS, and Browser Sync
+Install Gulp, Gulp SASS, Typescript, Gulpe Typescript, and Browser Sync
 
-`$ npm i -D gulp gulp-sass browser-sync typescript gulp-typescript`
+`$ npm i -D gulp gulp-sass typescript gulp-typescript browser-sync`
 
 Create the Gulp File
 
@@ -18,7 +32,7 @@ Create the Gulp File
 or  
 `/gulpfile.js/index.js`
 
-## Examples
+## Example Gulp File Configurations
 
 ### Default Tasks Example
 
@@ -30,6 +44,9 @@ function defaultTask(cb) {
 
 exports.default = defaultTask;
 ```
+
+*Run with*  
+`$ gulp`
 
 
 ### Series Example
@@ -50,6 +67,9 @@ function bundle(cb) {
 exports.build = series(transpile, bundle);
 ```
 
+*Run with*  
+`$ gulp build`
+
 
 ### Parallel Example
 
@@ -68,6 +88,9 @@ function css(cb) {
 
 exports.build = parallel(javascript, css);
 ```
+
+*Run with*  
+`$ gulp build`
 
 
 ### Watch Series Example
@@ -97,3 +120,6 @@ exports.default = function() {
   watch('public/*.js', series(clean, javascript));
 };
 ```
+
+*Run with*  
+`$ gulp`
