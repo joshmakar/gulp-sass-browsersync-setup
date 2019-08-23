@@ -7,8 +7,10 @@ Install the Gulp Command Line Interface
 Clone the Repository
 
 `$ git clone https://github.com/joshmakar/gulp-sass-typescript-browsersync-setup.git`
+or specify the directory name  
+`$ git clone https://github.com/joshmakar/gulp-sass-typescript-browsersync-setup.git my-project`
 
-CD into the Newly Created Directory and NPM Install
+CD into the Directory and NPM Install
 
 `$ npm install`
 
