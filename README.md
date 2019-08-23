@@ -10,7 +10,7 @@ Create a package.json file
 
 Install Gulp, Gulp SASS, and Browser Sync
 
-`$ npm i -D gulp gulp-sass browser-sync`
+`$ npm i -D gulp gulp-sass browser-sync typescript gulp-typescript`
 
 Create the Gulp File
 

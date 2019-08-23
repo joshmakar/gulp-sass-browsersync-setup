@@ -1,26 +1,56 @@
+//////////////////////////////////////////////////
+// Setup and configure environment
+//////////////////////////////////////////////////
+
 const gulp        = require('gulp'),
       sass        = require('gulp-sass'),
+      ts          = require('gulp-typescript'),
       browserSync = require('browser-sync').create();
+const tsProject = ts.createProject('tsconfig.json');
 
 
-// Compile SCSS into CSS
-function style() {
-  return gulp.src('./scss/**/*.scss')
+//////////////////////////////////////////////////
+// Create tasks
+//////////////////////////////////////////////////
+
+// Compile SCSS
+function scss() {
+  return gulp.src('./src/scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./public/css'))
     .pipe(browserSync.stream());
 }
 
-function watch() {
+// Compile TS
+function typescript() {
+  return tsProject.src()
+    .pipe(tsProject())
+    .js.pipe(gulp.dest('./public/js'));
+}
+
+// Initializae Browser Sync
+function browserSyncInit(done) {
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: './public/'
     }
-  });
-  gulp.watch('./scss/**/*.scss', style);
+  }, done);
+}
+
+// Watch
+function watch() {
+  browserSyncInit();
+  gulp.watch('./src/scss/**/*.scss', scss);
+  gulp.watch('./src/ts/**/*.ts', typescript);
   gulp.watch('./**/*.html').on('change', browserSync.reload);
   gulp.watch('./js/**/*.js').on('change', browserSync.reload);
 }
 
-exports.style = style;
-exports.watch = watch;
+
+//////////////////////////////////////////////////
+// Set up task names
+//////////////////////////////////////////////////
+
+exports.sass = scss;
+exports.typescript = typescript;
+exports.default = watch;
